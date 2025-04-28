@@ -1,0 +1,5 @@
+gpu_set_blendmode(bm_add)
+draw_sprite_ext(sprite_index,0,x,y,s,s,a,$ffffff,f2)
+draw_sprite_ext(sprite_index,1,x,y,s*32,s,a,$ffffff,f2)
+draw_sprite_ext(sprite_index,2,x,y,s,s*32,a,$ffffff,f2)
+gpu_set_blendmode(0)

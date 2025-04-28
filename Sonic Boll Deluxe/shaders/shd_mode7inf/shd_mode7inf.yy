@@ -1,0 +1,12 @@
+{
+  "$GMShader":"",
+  "%Name":"shd_mode7inf",
+  "name":"shd_mode7inf",
+  "parent":{
+    "name":"Shaders",
+    "path":"folders/Shaders.yy",
+  },
+  "resourceType":"GMShader",
+  "resourceVersion":"2.0",
+  "type":1,
+}

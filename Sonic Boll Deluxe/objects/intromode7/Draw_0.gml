@@ -1,0 +1,1 @@
+if (surface_exists(surf)) draw_surface_stretched(surf,0,0,400,244)

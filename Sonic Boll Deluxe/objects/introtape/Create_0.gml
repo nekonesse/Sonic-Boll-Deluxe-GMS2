@@ -1,0 +1,10 @@
+image_speed=0
+y=ystart+200
+alarm[0]=170
+image_xscale=1000
+f20=0
+fr20=0
+fg20=0
+flare=0
+lock=0
+depth=-1
