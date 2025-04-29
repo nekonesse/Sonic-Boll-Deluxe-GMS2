@@ -9,6 +9,7 @@
 #macro lf chr(13)+chr(10)
 
 function system_start(){
+	application_surface_draw_enable(false);
 	window_set_size(400*3,224*3)
 	window_center();
 	
