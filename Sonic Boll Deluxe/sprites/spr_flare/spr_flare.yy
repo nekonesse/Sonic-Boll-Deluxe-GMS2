@@ -91,8 +91,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"title_screen_sprites",
+    "path":"texturegroups/title_screen_sprites",
   },
   "type":0,
   "VTile":false,

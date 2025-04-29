@@ -1,0 +1,1 @@
+texturegroup_unload("title_screen_sprites")

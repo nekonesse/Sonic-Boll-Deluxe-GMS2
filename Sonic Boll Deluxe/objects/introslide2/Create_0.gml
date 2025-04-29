@@ -1,0 +1,13 @@
+depth=2
+alarm[0]=180
+f=0
+go=0
+blink=40
+hand=30
+time1=0
+time2=0
+frame1=0
+frame2=0
+tail=0
+tail2=0
+triangel=0

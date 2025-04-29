@@ -1,4 +1,4 @@
-depth=100;
+depth=1000;
 surf=surface_create(800,448)
 
 tex1=sprite_get_texture(tex_clouds,0)
@@ -18,12 +18,17 @@ starcol=make_color_rgb(255,255,128)
 starang=0;
 s=1
 
-test=0
+xpos=0;
+zpos=0;
+ypos=0;
+fov=60;
+
+v_buff = vertex_create_buffer();
 
 vertex_format_begin();
 vertex_format_add_position_3d();
-vertex_format_add_texcoord();
 vertex_format_add_color();
+vertex_format_add_texcoord();
 vertex_format = vertex_format_end();
 
 s=1

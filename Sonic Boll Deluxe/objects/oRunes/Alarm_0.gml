@@ -1,0 +1,1 @@
+_runesWaitB=0;

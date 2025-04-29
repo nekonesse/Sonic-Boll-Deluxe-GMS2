@@ -10,7 +10,7 @@
   "collisionTolerance":0,
   "DynamicTexturePage":false,
   "edgeFiltering":false,
-  "For3D":false,
+  "For3D":true,
   "frames":[
     {"$GMSpriteFrame":"","%Name":"489f3f68-8fb6-4fa2-8de5-3aa3b7fdf1bf","name":"489f3f68-8fb6-4fa2-8de5-3aa3b7fdf1bf","resourceType":"GMSpriteFrame","resourceVersion":"2.0",},
   ],
@@ -83,8 +83,8 @@
   "swatchColours":null,
   "swfPrecision":0.5,
   "textureGroupId":{
-    "name":"Default",
-    "path":"texturegroups/Default",
+    "name":"title_screen_sprites",
+    "path":"texturegroups/title_screen_sprites",
   },
   "type":0,
   "VTile":false,
