@@ -1,4 +1,4 @@
-//draw_text(2,2,bt)
+if !(cango) exit
 draw_sprite(spr_introborder,0,0,0)
      
 gpu_set_blendmode(bm_subtract)

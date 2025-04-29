@@ -22,8 +22,8 @@ if (!lok) {
             if (cango) {
                 lok=1
                 alarm[0]=-1
-				room_goto(mainmenu)
-                //segafadeto(mainmenu,"systemgo")
+				//room_goto(mainmenu)
+                segafadeto(mainmenu,"systemgo",false,false,false,true)
             }         
             if (!cango) {
                 cango=1

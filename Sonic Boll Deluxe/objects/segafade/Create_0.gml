@@ -1,0 +1,10 @@
+depth=-1000
+goto=room_next(room)
+color=0
+slow=0
+go=0
+v=0
+keeprunes=0
+keepborder=0
+keepmusic=0
+fade_in=1

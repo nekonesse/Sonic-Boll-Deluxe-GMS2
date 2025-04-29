@@ -10,14 +10,6 @@ instance_create_depth(0,y+16,0,introslide2)
 repeat (20) instance_create_depth(0,0,99,introslide)
 
 #region Initialize the Boll
-vertex_format_begin();
-vertex_format_add_position_3d();
-vertex_format_add_normal();
-vertex_format_add_texcoord();
-vertex_format_add_color();
-vertex_format = vertex_format_end();
-
-global.boll = import_obj_optimized("boll.obj", vertex_format);
 
 boll = surface_create(360,360);
 boll2 = surface_create(180,180);
