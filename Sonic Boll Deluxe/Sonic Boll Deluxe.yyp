@@ -77,6 +77,7 @@
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[
     {"$GMIncludedFile":"","%Name":"boll.obj","CopyToMask":-1,"filePath":"datafiles","name":"boll.obj","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
+    {"$GMIncludedFile":"","%Name":"boll.vbuff","CopyToMask":-1,"filePath":"datafiles","name":"boll.vbuff","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"controllerblacklist.csv","CopyToMask":-1,"filePath":"datafiles","name":"controllerblacklist.csv","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"controllertypes.csv","CopyToMask":-1,"filePath":"datafiles","name":"controllertypes.csv","resourceType":"GMIncludedFile","resourceVersion":"2.0",},
     {"$GMIncludedFile":"","%Name":"sdl2.txt","CopyToMask":-1,"filePath":"datafiles","name":"sdl2.txt","resourceType":"GMIncludedFile","resourceVersion":"2.0",},

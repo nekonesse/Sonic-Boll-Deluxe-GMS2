@@ -31,7 +31,9 @@ function system_start(){
 	vertex_format_add_texcoord();
 	vertex_format_add_color();
 	var vertex_format = vertex_format_end();
-	global.boll = import_obj("boll.obj", vertex_format);
+	var _temp=buffer_load("boll.vbuff")
+	global.boll = vertex_create_buffer_from_buffer(_temp, vertex_format);
+	buffer_delete(_temp);
 
 	//globals
 	global.sysfont=spr_sysfont
