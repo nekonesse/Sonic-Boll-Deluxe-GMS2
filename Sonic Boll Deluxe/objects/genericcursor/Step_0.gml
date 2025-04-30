@@ -31,7 +31,9 @@ pf10=instance_position(x,y,optmusvol)
 pf11=instance_position(x,y,bundlelist)
 pf12=instance_position(x,y,optcamshim)
 pf13=instance_position(x,y,ta_worldskinlist)
-
+*/
+pf14=instance_position(x,y,mmlegends)
+/*
 with (pf1) {if (other.y<y+16 || other.y>=y+20) over=other.id}
 with (pf2) image_index=1+(other.x>x+44)
 with (pf3) event_user(1)
@@ -66,6 +68,7 @@ if (abut) {
     with (pf8) event_user(0)
     with (pf11) event_user(0)
     with (pf13) event_user(0)
+    with (pf14) yeah=":)"
 
     // (languagepicker) event_user(0)
 }                    

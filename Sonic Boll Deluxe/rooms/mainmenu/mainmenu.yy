@@ -19,6 +19,7 @@
     {"name":"inst_64245117","path":"rooms/mainmenu/mainmenu.yy",},
     {"name":"inst_3CD59231","path":"rooms/mainmenu/mainmenu.yy",},
     {"name":"inst_4C004988","path":"rooms/mainmenu/mainmenu.yy",},
+    {"name":"inst_74346A26","path":"rooms/mainmenu/mainmenu.yy",},
   ],
   "isDnd":false,
   "layers":[
@@ -36,6 +37,7 @@
         {"$GMRInstance":"v2","%Name":"inst_64245117","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":5,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_64245117","objectId":{"name":"mmicon","path":"objects/mmicon/mmicon.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":384.0,"y":16.0,},
         {"$GMRInstance":"v2","%Name":"inst_3CD59231","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":11,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_3CD59231","objectId":{"name":"mmicon","path":"objects/mmicon/mmicon.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":280.0,"y":168.0,},
         {"$GMRInstance":"v2","%Name":"inst_4C004988","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":10,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_4C004988","objectId":{"name":"mmicon","path":"objects/mmicon/mmicon.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":120.0,"y":168.0,},
+        {"$GMRInstance":"v2","%Name":"inst_74346A26","colour":4294967295,"frozen":false,"hasCreationCode":true,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_74346A26","objectId":{"name":"mmlegends","path":"objects/mmlegends/mmlegends.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":200.0,"y":216.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":true,"visible":true,},
     {"$GMRAssetLayer":"","%Name":"border","assets":[
         {"$GMRSpriteGraphic":"v1","%Name":"graphic_C27764D","animationSpeed":1.0,"colour":4294967295,"frozen":false,"headPosition":0.0,"ignore":false,"inheritedItemId":null,"inheritItemSettings":false,"name":"graphic_C27764D","resourceType":"GMRSpriteGraphic","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"spriteId":{"name":"spr_border","path":"sprites/spr_border/spr_border.yy",},"x":0.0,"y":0.0,},

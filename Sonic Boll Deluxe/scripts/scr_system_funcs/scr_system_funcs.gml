@@ -37,7 +37,8 @@ function system_start(){
 
 	//globals
 	global.sysfont=spr_sysfont
-	global.fontmapbase="" for (i=1;i<128;i+=1) global.fontmapbase+=chr(i)
+	global.fontmapbase="" for (i=1;i<128;i+=1) global.fontmapbase+=chr(i) 
+    global.fontmap=global.fontmapbase//+lang("charmap")
 	global.blastmap=""
 	for (var i=65;i<91;i+=1) {
 	global.blastmap+=chr(i)

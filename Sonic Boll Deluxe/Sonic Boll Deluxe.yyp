@@ -85,7 +85,7 @@
   "isEcma":false,
   "LibraryEmitters":[],
   "MetaData":{
-    "IDEVersion":"2024.13.0.190",
+    "IDEVersion":"2024.13.1.193",
   },
   "name":"Sonic Boll Deluxe",
   "resources":[
@@ -105,6 +105,7 @@
     {"id":{"name":"introtape","path":"objects/introtape/introtape.yy",},},
     {"id":{"name":"mmctrl","path":"objects/mmctrl/mmctrl.yy",},},
     {"id":{"name":"mmicon","path":"objects/mmicon/mmicon.yy",},},
+    {"id":{"name":"mmlegends","path":"objects/mmlegends/mmlegends.yy",},},
     {"id":{"name":"runes","path":"objects/runes/runes.yy",},},
     {"id":{"name":"segafade","path":"objects/segafade/segafade.yy",},},
     {"id":{"name":"segafadein","path":"objects/segafadein/segafadein.yy",},},
@@ -469,6 +470,7 @@
     {"id":{"name":"scr_import_obj_opt","path":"scripts/scr_import_obj_opt/scr_import_obj_opt.yy",},},
     {"id":{"name":"scr_screen_handler","path":"scripts/scr_screen_handler/scr_screen_handler.yy",},},
     {"id":{"name":"scr_system_funcs","path":"scripts/scr_system_funcs/scr_system_funcs.yy",},},
+    {"id":{"name":"scr_textfuncs","path":"scripts/scr_textfuncs/scr_textfuncs.yy",},},
     {"id":{"name":"shd_diffuse","path":"shaders/shd_diffuse/shd_diffuse.yy",},},
     {"id":{"name":"shd_outline","path":"shaders/shd_outline/shd_outline.yy",},},
     {"id":{"name":"shd_scrolltexture","path":"shaders/shd_scrolltexture/shd_scrolltexture.yy",},},
