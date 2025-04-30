@@ -2,7 +2,6 @@ if cango {
 	shader_set(shd_outline)
 
 	var texture = surface_get_texture(boll)
-	var u_outline_color = shader_get_uniform(shd_outline,"outlineColor");
 	var t_width = texture_get_texel_width(texture)
 	var t_height = texture_get_texel_width(texture)
 

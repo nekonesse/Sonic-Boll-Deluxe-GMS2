@@ -1,9 +1,9 @@
 {
   "$GMScript":"v1",
-  "%Name":"scr_sb_functions",
+  "%Name":"scr_system_funcs",
   "isCompatibility":false,
   "isDnD":false,
-  "name":"scr_sb_functions",
+  "name":"scr_system_funcs",
   "parent":{
     "name":"Scripts",
     "path":"folders/Scripts.yy",

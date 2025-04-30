@@ -10,12 +10,12 @@ instance_create_depth(0,y+16,0,introslide2)
 repeat (20) instance_create_depth(0,0,99,introslide)
 
 #region Initialize the Boll
-
 boll = surface_create(360,360);
 boll2 = surface_create(180,180);
-#endregion
 
+u_outline_color = shader_get_uniform(shd_outline,"outlineColor");
 sh_texel_handle=shader_get_uniform(shd_outline,"in_Texel")
+#endregion
 time=0;
 
 depth=4;
@@ -32,6 +32,7 @@ is=0;
 lok=0; //whether or not the player can proceed to the menu
 
 ye=0;
+clicc=0;
 
 f=0
 bt=-1

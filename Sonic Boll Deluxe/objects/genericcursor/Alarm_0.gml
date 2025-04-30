@@ -1,0 +1,1 @@
+if (special) mousecursor(1)

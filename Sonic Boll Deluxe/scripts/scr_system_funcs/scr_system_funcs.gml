@@ -10,6 +10,7 @@
 
 function system_start(){
 	application_surface_draw_enable(false);
+	
 	window_set_size(400*3,224*3)
 	window_center();
 	
@@ -138,4 +139,15 @@ function system_start(){
 	//    setlang() //should prevent the game from having No Language if settings fail to load
 	//}
 	//stats("bootups",stats("bootups")+1)
+}
+
+function system_step() {
+	global.roomTimer++;
+	//less function calls
+	global.view_xview=camera_get_view_x(view_camera[0]);
+	global.view_yview=camera_get_view_y(view_camera[0]);
+	global.view_wview=camera_get_view_width(view_camera[0]);
+	global.view_hview=camera_get_view_height(view_camera[0]);
+	
+	if (keyboard_check_pressed(vk_escape) && !instance_exists(console)) menu_cancel();
 }

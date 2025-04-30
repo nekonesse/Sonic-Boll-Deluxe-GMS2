@@ -1,16 +1,14 @@
 if (_runesFade) {
     _alpha-=0.03;
     if (_alpha <= 0) {
-        if (surface_exists(_runesSurface))
-			surface_free(_runesSurface);
         instance_destroy();
         visible=0;
         exit
     }
 }
 
+if (!surface_exists(_runesSurface))
 _runesSurface=surface_create(_windowWidth,_windowHeight);
-if (!surface_exists(_runesSurface)) exit
 
 _runesTime+=1
 
@@ -48,9 +46,8 @@ gpu_set_texfilter(0);
 gpu_set_blendmode(0);
 surface_reset_target();
 
-_runesSurface2=surface_create(_windowWidth,_windowHeight);
 if (!surface_exists(_runesSurface2))
-	exit;
+_runesSurface2=surface_create(_windowWidth,_windowHeight);
 
 surface_set_target(_runesSurface2);
 draw_surface_ext(_runesSurface,0,0,1,1,0,$101010,1);

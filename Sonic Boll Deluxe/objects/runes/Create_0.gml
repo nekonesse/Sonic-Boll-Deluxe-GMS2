@@ -1,3 +1,4 @@
+depth=999999;
 draw_texture_flush();
 _cameraWIDTH		=400;
 _cameraHEIGHT		=224;

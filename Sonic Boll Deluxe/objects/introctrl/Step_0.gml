@@ -78,6 +78,7 @@ camera_set_view_mat(camera, view_mat);
 camera_apply(camera);
 
 draw_set_lighting(true)
+var amb=draw_light_get_ambient();
 draw_light_define_ambient($aa0000)
 draw_light_define_direction(0,-1,1,-1,$bbdd)
 draw_light_define_direction(2,1,-1,1,$ff)
@@ -94,6 +95,10 @@ matrix_set(matrix_world, matrix_build_identity());
 matrix_set(matrix_world,currmat);
 camera_set_view_mat(camera, curr_view);
 camera_apply(camera);
+draw_light_enable(0,0)
+draw_light_enable(1,0)
+draw_light_enable(2,0)
+draw_light_define_ambient(amb);
 gpu_set_zwriteenable(false);
 gpu_set_ztestenable(false);
 gpu_set_blendmode(bm_subtract)
