@@ -11,7 +11,9 @@
 function system_start(){
 	application_surface_draw_enable(false);
 	
-	window_set_size(400*3,224*3)
+	global.s=3
+	
+	window_set_size(400*global.s,224*global.s)
 	window_center();
 	
 	//set up game directories and caches
@@ -74,7 +76,6 @@ function system_start(){
 	global.bmovie=-1
 	global.w=400
 	global.h=224
-	global.s=2
 	global.mplay=0
 	global.fool=0 
 	global.electric=0
@@ -106,6 +107,7 @@ function system_start(){
 	global.valign=0
 	global.loadstate=0
 	global.loadtime=0
+	global.undocount=0
 	global.specialestr="S# ´`\/O.:t%@!bB123FT"
 	/*global.plattable=
 	    "a0000000000a000a000a0a00a0a0a0aa0a0aaa0aaa0aaaaaa0aaaaabaaaaaaab"+
@@ -127,11 +129,16 @@ function system_start(){
 
 	var rm=room_first 
 	do {
-	    room_set_view_enabled(rm,1)
-	    room_set_width(rm,1)
-	    room_set_height(rm,1)
+		if rm!=lemon {
+		    room_set_view_enabled(rm,1)
+		    room_set_width(rm,1)
+		    room_set_height(rm,1)
+		}
 	    rm=room_next(rm)
 	} until (rm=-1)
+	
+	room_set_height(lemon,1536);
+	room_set_height(lemon,864);
 
 	//screen_init()
 
