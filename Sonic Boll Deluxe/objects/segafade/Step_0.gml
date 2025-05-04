@@ -6,6 +6,7 @@ if (go) {/*if (!linked) {mus_stop() mus_volume(1)}*/
 		keepmusic=other.keepmusic
 	}
 	room_goto_safe(goto)
+	if !(keeprunes) instance_destroy(runes);
 }
 
 //linked=keepmusic || (skindat("deathmusic") && room=game)

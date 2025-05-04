@@ -1,6 +1,7 @@
 instance_create_depth(0,0,0,editcursor)
 //instance_create(x,y,drawregion)
 //instance_create(0,0,tooltiplayer)
+depth=2000000
 
 //discord_update_presence("","In the Level Editor","boll-icon","lemon-icon")
 
