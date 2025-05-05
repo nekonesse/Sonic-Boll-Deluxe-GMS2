@@ -52,6 +52,8 @@ function system_start(){
 	global.blastmap+=chr(32)
 	global.sprfont=-1
 	global.tscale=1
+	
+	global.langstruct={};
 
 	global.debug=debug_mode
 	global.gamemaker=(program_directory!=working_directory)
@@ -59,7 +61,7 @@ function system_start(){
 	global.christmas=(date_get_month(date_current_datetime())=12 && date_get_day(date_current_datetime())=25)
 
 	global.setmap=ds_map_create()
-	global.strmap=ds_map_create()
+	global.strmap={};
 	global.statmap=ds_map_create()
 	global.timemap=ds_map_create()
 	global.spentblocks=ds_map_create()   
@@ -149,6 +151,7 @@ function system_start(){
 	//    setlang() //should prevent the game from having No Language if settings fail to load
 	//}
 	//stats("bootups",stats("bootups")+1)
+	langdefault();
 }
 
 function system_step() {

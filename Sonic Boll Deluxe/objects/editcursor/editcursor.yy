@@ -35,6 +35,9 @@
     "name":"spr_cursor",
     "path":"sprites/spr_cursor/spr_cursor.yy",
   },
-  "spriteMaskId":null,
+  "spriteMaskId":{
+    "name":"tex_1x1",
+    "path":"sprites/tex_1x1/tex_1x1.yy",
+  },
   "visible":true,
 }
