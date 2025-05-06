@@ -36,10 +36,11 @@ rect(0,0,viewwidth,viewheight,c_black,0.5);
 draw_sprite_stretched(tex_grid,0,16,16,viewwidth-32,viewheight-32);
 surface_reset_target();
 
-curs_in=point_in_rectangle(editcursor.x,editcursor.y,viewx+16*editzoom.level, viewy+16*editzoom.level, viewx+((viewwidth-16)*editzoom.level), viewy+((viewheight-16)*editzoom.level))
+var zoom_margin=editzoom.level
+curs_in=point_in_rectangle(editcursor.x,editcursor.y,viewx+16*zoom_margin, viewy+16*zoom_margin, viewx+((viewwidth-16)*zoom_margin), viewy+((viewheight-16)*zoom_margin))
 
-gridx=round(((editcursor.x-24-viewx)/(16*editzoom.level)))
-gridy=round(((editcursor.y-24-viewy)/(16*editzoom.level)))
+gridx=round(((editcursor.x-(24*zoom_margin)-viewx)/(16*zoom_margin)))
+gridy=round(((editcursor.y-(24*zoom_margin)-viewy)/(16*zoom_margin)))
 
 if (curs_in && editcursor.leftp) {
 	show_debug_message(editcursor.tool)
