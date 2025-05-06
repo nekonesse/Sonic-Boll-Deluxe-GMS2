@@ -1,7 +1,8 @@
 instance_create_depth(0,0,0,editcursor)
-//instance_create(x,y,drawregion)
-//instance_create(0,0,tooltiplayer)
-depth=2000000
+instance_create_depth(0,0,0,drawregion)
+instance_create_depth(0,0,0,lemongrab)
+//instance_create_depth(0,0,0,tooltiplayer)
+depth=1
 
 //discord_update_presence("","In the Level Editor","boll-icon","lemon-icon")
 
@@ -13,13 +14,15 @@ depth=2000000
 undocount=global.undocount
 picked=-1
 
-//loadlemontabs(0)
+loadlemontabs(0)
 
 //winding=FMODSoundAdd(environment_get_variable("windir")+"\Media\Windows Ding.wav",0) //winding gaster
 
 autosave=""
 
 autosave=global.savedir+"autosave.lemon"
+
+tab=0
 
 if autosave="" autosave=global.savedir+"autosave.lemon.png"
 

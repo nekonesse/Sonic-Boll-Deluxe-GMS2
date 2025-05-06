@@ -85,6 +85,8 @@ function system_start(){
 	global.frameskipcounter=0
 	global.editpicked=-1
 	global.ref=-1
+	global.refx=0
+    global.refy=0
 	global.pfps=60
 	global.spd=60
 	global.vapor=0
@@ -97,7 +99,6 @@ function system_start(){
 	global.levelfname=""
 	global.lemontest=0
 	global.lemontestviewhack=0
-	global.replaythumb=-1
 	global.actually_recording_goddamnit=0
 	global.tasing=0
 	global.pos=1
