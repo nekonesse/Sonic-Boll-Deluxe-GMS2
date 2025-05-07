@@ -79,3 +79,25 @@ function loadlemontabs(tabsel) {
 		i++;
 	}
 }
+
+function lemon_object_draw(type, gridx, gridy) {
+	var index=0;
+	var xx=gridx*16;
+	var yy=gridy*16;
+	
+	if (lemongrab.objdat[$ type][0]) {
+		xx+=8
+		yy+=8
+	}
+	
+	switch (type) {
+		case "groundblock": {
+			var grid=lemongrab.deities[$ $"obj{region}"]
+			if grid[# gridx, gridy-1] == "groundblock" { // || other ground types				
+				index=1
+			}
+		}	break
+	}
+	
+	draw_sprite(lemongrab.objdat[$ type][1],index,16+xx,16+yy)
+}

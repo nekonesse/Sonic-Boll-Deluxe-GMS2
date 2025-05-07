@@ -1,0 +1,1 @@
+draw_text(2,2,fps_real)

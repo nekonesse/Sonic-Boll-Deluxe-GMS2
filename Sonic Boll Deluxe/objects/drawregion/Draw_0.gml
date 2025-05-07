@@ -1,3 +1,8 @@
+if (update) {
+	event_user(0);
+	update=0
+}
+
 if surface_exists(surf)
 draw_surface_ext(surf,viewx,viewy,editzoom.level,editzoom.level,0,c_white,1)
 

@@ -39,6 +39,4 @@ ireaderpick=0
 gobblepick=0
 gobblepick2=0
 
-surf=surface_create(viewwidth, viewheight)
-show_debug_message(surface_exists(surf))
-event_user(0)
+surf=-1

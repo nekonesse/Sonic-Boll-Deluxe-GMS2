@@ -1,0 +1,1 @@
+show_debug_message(surface_exists(surf))
