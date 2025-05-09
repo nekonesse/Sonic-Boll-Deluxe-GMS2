@@ -12,18 +12,18 @@ if (special && canmouse) mousecursor(0)
 x=median(global.view_xview+8,x+(right-left)*2,global.view_xview+392)
 y=median(global.view_yview+8,y+(down-up)*2,global.view_yview+216)
 
-//if (instance_exists(statshow)) {
-//    if (abut || bbut || (cbut && !statshow.maxpage)) statshow.go=1
-//    if (cbut && statshow.alpha == 1) statshow.curpage+=1
-//    exit
-//}
+if (instance_exists(statshow)) {
+    if (abut || bbut || (cbut && !statshow.maxpage)) statshow.go=1
+    if (cbut && statshow.alpha == 1) statshow.curpage+=1
+    exit
+}
 
 /*pf1=instance_position(x,y,stagemode)
 pf2=instance_position(x,y,stagenum)
 pf3=instance_position(x,y,stagepick)
 pf4=instance_position(x,y,stagego)
-pf5=instance_position(x,y,genericbutton) 
 */
+pf5=instance_position(x,y,genericbutton) 
 pf6=instance_position(x,y,mmicon)   
 /*pf8=instance_position(x,y,worldskinlist)
 pf9=instance_position(x,y,optvol)
@@ -32,14 +32,14 @@ pf11=instance_position(x,y,bundlelist)
 pf12=instance_position(x,y,optcamshim)
 pf13=instance_position(x,y,ta_worldskinlist)
 */
-pf14=instance_position(x,y,mmlegends)
+pf14=instance_position(x,y,mmlegends) //mmlegends separate check that happens to also fix "tip mmlegends" appearing
 /*
 with (pf1) {if (other.y<y+16 || other.y>=y+20) over=other.id}
 with (pf2) image_index=1+(other.x>x+44)
 with (pf3) event_user(1)
 with (pf4) over=1 
-with (pf5) {over=other.id neweroptions.str=lang("tip "+object_get_name(object_index))}
 */
+with (pf5) {over=other.id /*<-- possibly a bug?*/ neweroptions.str=lang("tip "+object_get_name(object_index))}
 with (pf6) event_user(1)     
 /*with (pf8) if (other.x>=x) {over1=(other.y<y+19) over2=(other.y>y+116)}
 with (pf9) {over=other.id neweroptions.str=lang("tip "+object_get_name(object_index))}

@@ -1,14 +1,16 @@
-function draw_systext(dx, dy, str, col, alpha, linespc){
+function draw_systext(initx, inity, str, col, alpha, linespc){
     var l,i,j,c,s;
     var line,lw,lh;
     var arr,tag,tagstr,cmd;
-    var dcol,dalp,dsca,dlin;
+    var dx,dy,dcol,dalp,dsca,dlin;
+	dx=floor(initx)
+	dy=floor(inity)
     
     if (global.sysfont=-1 || argument_count<3) exit
                           
-    col=$ffffff if (argument_count>=4) col=argument[3]
-    alpha=1 if (argument_count>=5) alpha=argument[4]
-    linespc=8 if (argument_count>=6) linespc=argument[5]
+    if is_undefined(col)     col=$ffffff
+    if is_undefined(alpha)   alpha=1
+    if is_undefined(linespc) linespc=8
     l=string_length(str)
     
     maxx=0
@@ -69,21 +71,23 @@ function draw_systext(dx, dy, str, col, alpha, linespc){
         if (cmd[i,0]=3) dsca=s*cmd[i,1]
         if (cmd[i,0]=4) dlin=cmd[i,1]
         if (c=13) continue
-        if (c=35 || c=10) {dcol=col dalp=alpha dsca=s line+=1 dx=floor(argument[0]) if (global.halign=1) dx-=floor(lw[line]/2) if (global.halign=2) dx-=lw[line] dy+=dlin*s continue}
+        if (c=35 || c=10) {dcol=col dalp=alpha dsca=s line+=1 dx=floor(initx) if (global.halign=1) dx-=floor(lw[line]/2) if (global.halign=2) dx-=lw[line] dy+=dlin*s continue}
         if (c!=32) draw_sprite_part_ext(global.sysfont,0,(c mod 16)*9,(c div 16)*9,9,9,dx,dy+(dlin+1)*s-(dlin+1)*dsca,s,dsca,dcol,dalp)
         dx+=8*s
     }
 }
 
-function draw_omitext(dx, dy, str, col, alpha, linespc){
+function draw_omitext(initx, inity, str, col, alpha, linespc){
     var l,i,j,c,s;
     var line,lw,lh;
     var arr,tag,tagstr,cmd;
-    var dcol,dalp,dsca,dlin;
+    var dx,dy,dcol,dalp,dsca,dlin;
+	dx=floor(initx)
+	dy=floor(inity)
                           
-    col=$ffffff if (argument_count>=4) col=argument[3]
-    alpha=1 if (argument_count>=5) alpha=argument[4]
-    linespc=8 if (argument_count>=6) linespc=argument[5]
+    if is_undefined(col)     col=$ffffff
+    if is_undefined(alpha)   alpha=1
+    if is_undefined(linespc) linespc=8
     l=string_length(str)
     
     maxx=0
@@ -141,7 +145,7 @@ function draw_omitext(dx, dy, str, col, alpha, linespc){
         if (cmd[i,0]=2) dalp=alpha*cmd[i,1]
         if (cmd[i,0]=3) dsca=s*cmd[i,1]
         if (c=13) continue
-        if (c=35 || c=10) {dcol=col dalp=alpha dsca=s line+=1 dx=floor(argument[0]) if (global.halign=1) dx-=floor(lw[line]/2) if (global.halign=2) dx-=lw[line] dy+=6*s continue}
+        if (c=35 || c=10) {dcol=col dalp=alpha dsca=s line+=1 dx=floor(initx) if (global.halign=1) dx-=floor(lw[line]/2) if (global.halign=2) dx-=lw[line] dy+=6*s continue}
         if (c!=32) draw_sprite_part_ext(spr_omifont,0,((c-32) mod 16)*5,((c-32) div 16)*7,5,7,dx-1,dy-1+6*s-6*dsca,s,dsca,dcol,dalp)
         dx+=4*s
     }
@@ -153,4 +157,32 @@ function color_mult(col1,col2) {
         (color_get_green(col1)*color_get_green(col2))/255,
         (color_get_blue(col1)*color_get_blue(col2))/255
     )
+}
+
+function wordwrap(str,len) {
+	//adapted string_wordwrap from gmlscripts.com
+	var brk,out,i,j;
+	brk="#"
+
+	out=""
+	while (string_length(str)) {
+	    while (string_pos(brk,str)<=len+1) && (string_pos(brk,str)>0) {
+	        out+=string_copy(str,1,string_pos(brk,str)+1)
+	        str=string_delete(str,1,string_pos(brk,str)+1)
+	    }
+	    i=string_length(str)+1
+	    if (i>len+1) for (i=len+1;i>0;i-=1) if (string_char_at(str,i)=" ") break
+	    if (!i) {        
+	        j=len
+	        i=j      
+	    } else {
+	        j=i
+	        i-=1
+	    }
+	    out+=string_copy(str,1,i)+brk
+	    str=string_delete(str,1,j)
+	}
+	out=string_copy(out,1,string_length(out)-1)
+
+	return out
 }

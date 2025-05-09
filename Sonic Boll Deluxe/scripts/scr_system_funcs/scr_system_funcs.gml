@@ -22,6 +22,11 @@ function system_start(){
 
 	global.savedir=global.workdir+"save\\"
 	directory_create(global.savedir)
+	
+	var savestring = global.savedir+gametitle
+	if debug_mode savestring+="_DEBUG"
+	global.savefile=savestring+".cfg"
+	
 	global.cache=global.savedir+"cache\\"
 
 	global.tmpfile=global.tempdir+"res.gms"
@@ -64,6 +69,7 @@ function system_start(){
 	global.strmap={};
 	global.statmap=ds_map_create()
 	global.timemap=ds_map_create()
+	global.maptype=0; //for settings, set to 1 to write to time attack map instead (avoids duplicate function)
 	global.spentblocks=ds_map_create()   
 	global.keylog=buffer_create(10000,buffer_grow, 1)
 
@@ -147,11 +153,11 @@ function system_start(){
 
 	var setting_load;
 
-	//setting_load = loadopt()
-	//if !setting_load {
-	//    setlang() //should prevent the game from having No Language if settings fail to load
-	//}
-	//stats("bootups",stats("bootups")+1)
+	setting_load = loadopt()
+	/*if !setting_load {
+	    setlang() //should prevent the game from having No Language if settings fail to load
+	}*/
+	stats("bootups",stats("bootups")+1)
 	langdefault();
 }
 

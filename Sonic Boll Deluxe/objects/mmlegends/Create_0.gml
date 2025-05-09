@@ -1,3 +1,3 @@
 depth=1
-str="AAAA"
-yeah="BBBB"
+str=""
+yeah=""
