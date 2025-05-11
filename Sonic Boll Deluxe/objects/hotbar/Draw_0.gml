@@ -16,10 +16,10 @@ for (var i=0;i<9;i+=1) {
     //else
     var yy=y+yraise[i]
     
-    //if (editcursor.tool=2 && cur=i+1) draw_sprite_ext(spr_editorbutton,1+!editcanflood(lemongrab.objlist[obj[cur],0]),xx,yy,1,1,0,$ffffff,alpha)
-   /* else*/ 
+
 	draw_sprite_ext(spr_editorbuttonshadow,0,xx,yy,1,1,0,c_black,0.5)
-	draw_sprite_ext(spr_editorbutton,(cur=i+1),xx,yy,1,1,0,$ffffff,alpha)
+    //if (editcursor.tool=2 && cur=i+1) draw_sprite_ext(spr_editorbutton,2+!editcanflood(lemongrab.objlist[obj[cur],0]),xx,yy,1,1,0,$ffffff,alpha)
+   /* else*/ draw_sprite_ext(spr_editorbutton,(cur=i+1),xx,yy,1,1,0,$ffffff,alpha)
 	
     
 	if (cur=i+1) draw_sprite_ext(spr_editsel,0,xx,yy,1,1,0,$ffffff,alpha)
