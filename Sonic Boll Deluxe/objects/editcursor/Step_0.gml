@@ -51,6 +51,6 @@ if (left) {
     image_index=min(4,image_index+0.2)
 } else image_index=0
 
-//if (drawregion.hidecur) image_xscale=1
-//else image_xscale=editzoom.level
+if !(drawregion.hide_curs) image_xscale=1
+else image_xscale=editzoom.level
 image_yscale=image_xscale

@@ -1,4 +1,4 @@
-if (image_index=0) segafadeto(roster,"systemstart")
+if (image_index=0) segafadeto(game,"systemstart")
 if (image_index=1) menu_cancel()
 //if (image_index=2) menu_quickplay()
 if (image_index=3) segafadeto(options,"systemstart")

@@ -1,9 +1,17 @@
 function lemonobjlist() {
 	objdat={};
+	objfamily={};
 	//object name (string), DO NOT USE AN OBJECT REFERENCE HANDLE (for example, [itembox] instead of "itembox" )
 	var registerobj = function(object, centered, sprite, iconsubimage=0, parent=-1, xscale=1, yscale=1) {
-		objdat[$ object]=[centered, sprite, iconsubimage, parent, xscale, yscale]	
-	}					//xscale and yscale are for editor hitboxes, slopes and banzai bill launchers use it.
+		objdat[$ object]=[centered, sprite, iconsubimage, parent, xscale, yscale]
+		objfamily[$ object]=[object];
+		
+		if parent!=object && parent!=-1 {
+			if is_array(objfamily[$ parent]) {
+				array_push(objfamily[$ parent],object)
+			} else objfamily[$ parent]=[object]
+		}
+	} //xscale and yscale are for editor hitboxes, slopes and banzai bill launchers use it.
 	var registerdoc = function(object, name, desc) {
 		objdat[$ $"{object} doc"]=[name, desc]
 	}
@@ -13,6 +21,10 @@ function lemonobjlist() {
 
 	registerobj("groundblock", false, spr_ground, 1)
 	registerdoc("groundblock", "Ground", "")
+	registerobj("itembox", false, spr_itembox, 28)
+	registerdoc("itembox", "Item Box", "")
+	registerobj("longitembox", false, spr_longitembox, 29, "itembox")
+	registerdoc("longitembox", "Long Item Box", "")
 }
 
 function loadlemontabs(tabsel) {
@@ -39,7 +51,7 @@ function loadlemontabs(tabsel) {
 	}
 
 	if (tabsel=0) { 
-		l[0]="groundblock"
+		l[0]="groundblock" l[1]="itembox" l[2]="longitembox"
 	}
 
 	/*//Main (In development)

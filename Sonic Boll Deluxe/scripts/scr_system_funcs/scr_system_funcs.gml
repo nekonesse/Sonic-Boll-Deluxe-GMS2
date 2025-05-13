@@ -9,6 +9,7 @@
 #macro lf chr(13)+chr(10)
 
 function system_start(){
+	
 	application_surface_draw_enable(false);
 	
 	global.s=3
@@ -42,6 +43,65 @@ function system_start(){
 	global.boll = vertex_create_buffer_from_buffer(_temp, vertex_format);
 	buffer_delete(_temp);
 
+	global._findDefine = function(_filedir){
+		var _code		=file_text_open_read(_filedir);
+		var _str		="",
+			_cur		=file_text_read_string(_code),
+			_NLstr		="",
+			_fileSTR	="",
+			_list		=[];
+		var index = 0
+		//Looking for our section
+		while (!file_text_eof(_code)) {
+			while (!string_starts_with(_cur,"#define")) {
+			    file_text_readln(_code);
+				_cur	=file_text_read_string(_code);
+				if file_text_eof(_code) {
+					break;
+				}
+			}
+		
+			if string_starts_with(_cur,"#define") { 
+				_cur = string_delete(_cur, 0, 8);
+				_list[index++] = _cur;
+				show_debug_message(_cur);
+			}
+
+		}
+		file_text_close(_code);
+		show_debug_message("DONE READING... going away")
+		return _list
+	}
+
+	global._loopThrough = function(_lookfor, _filedir) { //Function to go through and collect string from specific parts of the GML file
+		var _code		=file_text_open_read(_filedir);
+		var _str		="",
+			_cur		=file_text_read_string(_code),
+			_NLstr		="",
+			_fileSTR	="";
+	
+		//Looking for our section
+		while (_cur!=$"#define {_lookfor}") {
+			file_text_readln(_code);
+			_cur	=file_text_read_string(_code);
+		}
+		//Getting the code from our section
+		while (!file_text_eof(_code) and !string_starts_with(_NLstr,"#define")) {
+		    file_text_readln(_code);
+			_fileSTR	=file_text_read_string(_code);
+			_NLstr		=_fileSTR;
+			if (!string_starts_with(_NLstr,"#define"))
+				_str +=$"{_fileSTR}\n";
+		}
+		file_text_close(_code);
+	
+		//Returning it to the caller
+		return _str;
+	}
+
+	global.scripts = compile_code()
+	show_message(global.scripts)
+		
 	//globals
 	global.sysfont=spr_sysfont
 	global.fontmapbase="" for (i=1;i<128;i+=1) global.fontmapbase+=chr(i) 

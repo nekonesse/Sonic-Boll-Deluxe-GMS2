@@ -15,6 +15,7 @@ deityc=0
 update=0
 
 curs_in=0
+hide_curs=0
 gridx=0
 gridy=0
 

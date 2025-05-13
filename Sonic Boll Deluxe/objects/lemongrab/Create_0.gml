@@ -5,6 +5,9 @@ repeat(8) {
 	deities[$ $"liquid{i}"]=ds_grid_create(ceil(drawregion.viewwidth/16),ceil(drawregion.viewheight/16))
 	deities[$ $"semi{i}"]=ds_grid_create(ceil(drawregion.viewwidth/16),ceil(drawregion.viewheight/16))
 	deities[$ $"back{i}"]=ds_grid_create(ceil(drawregion.viewwidth/16),ceil(drawregion.viewheight/16))
+	
+	//the other layers dont need data, since they only hold dataless tiles
+	deities[$ "data{i}"][0][0]=[]
 	i++
 }
 

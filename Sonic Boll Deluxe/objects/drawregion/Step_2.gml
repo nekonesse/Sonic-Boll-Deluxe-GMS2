@@ -56,7 +56,10 @@ surface_reset_target();*/
 #endregion
 
 var zoom_margin=editzoom.level
+//excludes border from detection, for interacting with the canvas
 curs_in=point_in_rectangle(editcursor.x,editcursor.y,viewx+16*zoom_margin, viewy+16*zoom_margin, viewx+((viewwidth-16)*zoom_margin), viewy+((viewheight-16)*zoom_margin))
+//includes border, for interacting with slider stuff
+hide_curs=point_in_rectangle(editcursor.x,editcursor.y,viewx, viewy, viewx+(viewwidth*zoom_margin), viewy+(viewheight*zoom_margin))
 
 gridx=round(((editcursor.x-(24*zoom_margin)-viewx)/(16*zoom_margin)))
 gridy=round(((editcursor.y-(24*zoom_margin)-viewy)/(16*zoom_margin)))
