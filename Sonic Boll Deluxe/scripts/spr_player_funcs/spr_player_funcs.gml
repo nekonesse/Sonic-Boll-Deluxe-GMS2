@@ -10,30 +10,26 @@ function player_collision(){
 	
 	var coll = instance_place(x + hsp, y, collider)
 	if (coll) && (!coll.semi || coll.semi == SEMI_LEFT || coll.semi == SEMI_RIGHT || (object_is_ancestor(coll.object_index, slopepar) && coll.semi)) {
-		yPlus = 0;
+		var yPlus = 0;
 		var coll2 = instance_place(x + hsp, y - yPlus, collider)
 		var touchingSemiSlope=false;
-		var coll3 = instance_place(x + hsp, y, slopepar)
-		if (coll3) && (coll3.semi) {
-			with(coll3) {
+		if (coll2) && (coll2.semi) {
+			with(coll2) {
 				if object_index == sloper_s {
-					if rectangle_in_triangle(other.bbox_left,other.bbox_top,other.bbox_right-1,other.bbox_bottom-1,bbox_left,bbox_top+1,bbox_left,bbox_bottom,bbox_right-1,bbox_bottom) {
+					if rectangle_in_triangle(other.bbox_left+other.hsp,other.bbox_top+other.vsp,other.bbox_right-1+other.hsp,other.bbox_bottom-1+other.vsp,bbox_left,bbox_top+1,bbox_left,bbox_bottom,bbox_right-1,bbox_bottom) {
 						touchingSemiSlope = true;
 					}
 				} else if object_index == slopel_s {
-					if rectangle_in_triangle(other.bbox_left-2,other.bbox_top-2,other.bbox_right+1,other.bbox_bottom+1,bbox_right-1,bbox_top,bbox_right-1,bbox_bottom,bbox_left-1,bbox_bottom) {
+					if rectangle_in_triangle(other.bbox_left+other.hsp,other.bbox_top+other.vsp,other.bbox_right-1+other.hsp,other.bbox_bottom-1+other.vsp,bbox_right-1,bbox_top,bbox_right-1,bbox_bottom,bbox_left-1,bbox_bottom) {
 						touchingSemiSlope = true;
-						show_debug_message("ouugh")
 					}
 				}
 			}
 		}
 		
-		if !touchingSemiSlope {
-			while (coll2 && (!coll2.semi || (coll2.semi == SEMI_UP)) && yPlus <= min(abs((2 * sign(hsp)) + hsp), 12)) {
-				yPlus += 1;
-			}
-		} else yPlus=0
+		while (coll2 && (!coll2.semi || coll2.semi == SEMI_UP) && yPlus <= min(abs((2 * sign(hsp)) + hsp), 12)) {
+			yPlus += 1;
+		}
 		
 		
 		if (place_meeting(x + hsp, y - yPlus, coll) && !(object_is_ancestor(coll.object_index, slopepar) && coll.semi && !touchingSemiSlope)) {
@@ -48,15 +44,17 @@ function player_collision(){
 			}
 			
 		} else {
+			
 			y -= yPlus;
 			if yPlus show_debug_message("goup")
 		}
 	} else {
 		if (grounded) {
-			yMinus = 0;
+			var yMinus = 0;
 			var coll=place_meeting(x + hsp, y + yMinus, collider)
 			while((!coll || coll.semi == SEMI_LEFT || coll.semi == SEMI_LEFT) && yMinus <= min(abs((2 * sign(hsp)) + hsp), 12)){
 				yMinus +=1;
+				coll=place_meeting(x + hsp, y + yMinus, collider)
 			}
 			yMinus -= 1;
 
@@ -75,14 +73,16 @@ function player_collision(){
 		var touchingSemiSlope=false;
 		with(coll) {
 			if object_index == sloper_s {
-				if rectangle_in_triangle(other.bbox_left,other.bbox_top,other.bbox_right-1,other.bbox_bottom-1,bbox_left,bbox_top+1,bbox_left,bbox_bottom,bbox_right,bbox_bottom)
-				touchingSemiSlope = true;
+				if rectangle_in_triangle(other.bbox_left+other.hsp,other.bbox_top+other.vsp,other.bbox_right-1+other.hsp,other.bbox_bottom-1+other.vsp,bbox_left,bbox_top+1,bbox_left,bbox_bottom,bbox_right-1,bbox_bottom) {
+						touchingSemiSlope = true;
+				}
 			} else if object_index == slopel_s {
-				if rectangle_in_triangle(other.bbox_left,other.bbox_top,other.bbox_right-1,other.bbox_bottom-1,bbox_right-1,bbox_top+1,bbox_right-1,bbox_bottom,bbox_left+1,bbox_bottom)
-				touchingSemiSlope = true;
+				if rectangle_in_triangle(other.bbox_left+other.hsp,other.bbox_top+other.vsp,other.bbox_right-1+other.hsp,other.bbox_bottom-1+other.vsp,bbox_right-1,bbox_top,bbox_right-1,bbox_bottom,bbox_left-1,bbox_bottom) {
+					touchingSemiSlope = true;
+				}
 			}
 		}
-		if (coll) && (!coll.semi || (coll.semi==SEMI_UP && !touchingSemiSlope)) {
+		if (coll) && (!coll.semi || (coll.semi==SEMI_UP && (coll.bbox_top>bbox_bottom-1 || object_is_ancestor(coll.object_index,slopepar)) && !touchingSemiSlope)) {
 			while !(place_meeting(x, y+1, coll)) {
 				y += 1;
 			}
