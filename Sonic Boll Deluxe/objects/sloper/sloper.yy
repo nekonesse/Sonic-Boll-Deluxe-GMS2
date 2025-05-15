@@ -1,17 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"collider",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"sloper",
+  "eventList":[],
   "managed":true,
-  "name":"collider",
+  "name":"sloper",
   "overriddenProperties":[],
   "parent":{
     "name":"Collision",
     "path":"folders/Objects/Level Objects/Collision.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"slopepar",
+    "path":"objects/slopepar/slopepar.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
@@ -30,8 +31,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_parent",
-    "path":"sprites/spr_parent/spr_parent.yy",
+    "name":"spr_sloper",
+    "path":"sprites/spr_sloper/spr_sloper.yy",
   },
   "spriteMaskId":null,
   "visible":true,

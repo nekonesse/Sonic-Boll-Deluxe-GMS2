@@ -61,8 +61,6 @@ function compile_code(){
 			repeat(array_length(def_names)) {
 			
 				var store = _file + "_" + def_names[i]
-				show_debug_message(store)
-				//show_message(store);
 			
 				if !is_undefined(_compiled[? store]) {
 					show_message("WARNING: `" + store + "` already has a script compiled.")
@@ -70,7 +68,6 @@ function compile_code(){
 			
 				var ast = GMLspeak.parseString(global._loopThrough(def_names[i], _filepath));
 				_compiled[? store] = GMLspeak.compileGML(ast);
-				show_message(_compiled[? store])
 				i++;
 			}
 			

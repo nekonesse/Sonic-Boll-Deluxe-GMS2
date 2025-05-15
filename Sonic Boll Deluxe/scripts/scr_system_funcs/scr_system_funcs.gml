@@ -100,8 +100,7 @@ function system_start(){
 	}
 
 	global.scripts = compile_code()
-	show_message(global.scripts)
-		
+	
 	//globals
 	global.sysfont=spr_sysfont
 	global.fontmapbase="" for (i=1;i<128;i+=1) global.fontmapbase+=chr(i) 

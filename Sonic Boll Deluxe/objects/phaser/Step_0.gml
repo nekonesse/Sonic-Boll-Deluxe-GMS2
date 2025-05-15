@@ -1,0 +1,1 @@
+image_index=max(semi-1,0)

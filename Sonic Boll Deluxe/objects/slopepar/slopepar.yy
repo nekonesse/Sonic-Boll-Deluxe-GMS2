@@ -1,17 +1,18 @@
 {
   "$GMObject":"",
-  "%Name":"collider",
-  "eventList":[
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-  ],
+  "%Name":"slopepar",
+  "eventList":[],
   "managed":true,
-  "name":"collider",
+  "name":"slopepar",
   "overriddenProperties":[],
   "parent":{
     "name":"Collision",
     "path":"folders/Objects/Level Objects/Collision.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"collider",
+    "path":"objects/collider/collider.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
