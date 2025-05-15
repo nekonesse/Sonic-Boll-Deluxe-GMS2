@@ -3,7 +3,6 @@
   "%Name":"slopel_s",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
-    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"slopel_s",
@@ -34,8 +33,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_slopel",
-    "path":"sprites/spr_slopel/spr_slopel.yy",
+    "name":"spr_slopel_s",
+    "path":"sprites/spr_slopel_s/spr_slopel_s.yy",
   },
   "spriteMaskId":null,
   "visible":true,

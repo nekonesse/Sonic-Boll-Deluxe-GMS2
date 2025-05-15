@@ -15,22 +15,20 @@ function player_collision(){
 		var touchingSemiSlope=false;
 		if (coll2) && (coll2.semi) {
 			with(coll2) {
-				if object_index == sloper_s {
-					if rectangle_in_triangle(other.bbox_left+other.hsp,other.bbox_top+other.vsp,other.bbox_right-1+other.hsp,other.bbox_bottom-1+other.vsp,bbox_left,bbox_top+1,bbox_left,bbox_bottom,bbox_right-1,bbox_bottom) {
-						touchingSemiSlope = true;
-					}
-				} else if object_index == slopel_s {
-					if rectangle_in_triangle(other.bbox_left+other.hsp,other.bbox_top+other.vsp,other.bbox_right-1+other.hsp,other.bbox_bottom-1+other.vsp,bbox_right-1,bbox_top,bbox_right-1,bbox_bottom,bbox_left-1,bbox_bottom) {
-						touchingSemiSlope = true;
-					}
-				}
+				if (other.vsp<0 || other.bbox_bottom-1>bbox_bottom)
+	            {
+					touchingSemiSlope=true
+	            } else if ((object_index==slopel_s && other.bbox_right>x)||(object_index==sloper_s && other.bbox_left<x)) && other.bbox_bottom-1>bbox_bottom
+					touchingSemiSlope=true
 			}
 		}
 		
-		while (coll2 && (!coll2.semi || coll2.semi == SEMI_UP) && yPlus <= min(abs((2 * sign(hsp)) + hsp), 12)) {
+		if !touchingSemiSlope
+		while (coll2 && (!coll2.semi || coll2.semi == SEMI_UP) && yPlus <= min(abs(hsp), 12)) {
 			yPlus += 1;
+			coll2 = instance_place(x + hsp, y - yPlus, collider)
 		}
-		
+		else yPlus=0;
 		
 		if (place_meeting(x + hsp, y - yPlus, coll) && !(object_is_ancestor(coll.object_index, slopepar) && coll.semi && !touchingSemiSlope)) {
 			//if its just a regular solid, dont do any fancy checks
@@ -44,15 +42,13 @@ function player_collision(){
 			}
 			
 		} else {
-			
 			y -= yPlus;
-			if yPlus show_debug_message("goup")
 		}
 	} else {
 		if (grounded) {
 			var yMinus = 0;
 			var coll=place_meeting(x + hsp, y + yMinus, collider)
-			while((!coll || coll.semi == SEMI_LEFT || coll.semi == SEMI_LEFT) && yMinus <= min(abs((2 * sign(hsp)) + hsp), 12)){
+			while((!coll || coll.semi == SEMI_LEFT || coll.semi == SEMI_LEFT) && yMinus <= min(abs(hsp), 12)){
 				yMinus +=1;
 				coll=place_meeting(x + hsp, y + yMinus, collider)
 			}
@@ -72,15 +68,11 @@ function player_collision(){
 		var coll=instance_place(x,y+vsp,collider)
 		var touchingSemiSlope=false;
 		with(coll) {
-			if object_index == sloper_s {
-				if rectangle_in_triangle(other.bbox_left+other.hsp,other.bbox_top+other.vsp,other.bbox_right-1+other.hsp,other.bbox_bottom-1+other.vsp,bbox_left,bbox_top+1,bbox_left,bbox_bottom,bbox_right-1,bbox_bottom) {
-						touchingSemiSlope = true;
-				}
-			} else if object_index == slopel_s {
-				if rectangle_in_triangle(other.bbox_left+other.hsp,other.bbox_top+other.vsp,other.bbox_right-1+other.hsp,other.bbox_bottom-1+other.vsp,bbox_right-1,bbox_top,bbox_right-1,bbox_bottom,bbox_left-1,bbox_bottom) {
-					touchingSemiSlope = true;
-				}
-			}
+			if (other.vsp<0 || other.bbox_bottom-1>bbox_bottom)
+	        {
+				touchingSemiSlope=true
+	        } else if ((object_index==slopel_s && other.bbox_right>x)||(object_index==sloper_s && other.bbox_left<x)) && other.bbox_bottom-1>bbox_bottom
+				touchingSemiSlope=true
 		}
 		if (coll) && (!coll.semi || (coll.semi==SEMI_UP && (coll.bbox_top>bbox_bottom-1 || object_is_ancestor(coll.object_index,slopepar)) && !touchingSemiSlope)) {
 			while !(place_meeting(x, y+1, coll)) {
