@@ -1,5 +1,5 @@
 #macro gametitle "Sonic Boll Deluxe"
-#macro version "2.2"
+#macro gameversion "2.2"
 #macro margin 1/256
 #macro verybignumber 999999999
 #macro assetdepth 1000003

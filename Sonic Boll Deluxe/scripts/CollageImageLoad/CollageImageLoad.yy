@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"CollageImageLoad",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"CollageImageLoad",
+  "parent":{
+    "name":"Image",
+    "path":"folders/Collage/Image.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

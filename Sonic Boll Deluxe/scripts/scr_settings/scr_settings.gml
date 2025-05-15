@@ -85,7 +85,7 @@ function loadopt() {
 	    if (!ds_map_read(temp,str)) {ds_map_destroy(temp) return 0}
 	    else {
 	        if (!is_string(settings("version"))) {ds_map_destroy(temp) return 0}
-	        else if (settings("version")!=version) {ds_map_destroy(temp) return 0}
+	        else if (settings("version")!=gameversion) {ds_map_destroy(temp) return 0}
 	        else {
 	            k=ds_map_find_first(temp)
 	            repeat (ds_map_size(temp)) {
@@ -115,7 +115,7 @@ function saveopt() {
 	}
 }
 function loaddefault() {
-	settings("version",version)
+	settings("version",gameversion)
 	settings("volbalance",0.5)
 	settings("musbalance",0.5)
 	settings("keyboard1",string(vk_up)+"|"+string(vk_down)+"|"+string(vk_left)+"|"+string(vk_right)+"|"+string(ord("X"))+"|"+string(ord("Z"))+"|"+string(ord("C"))+"|"+string(vk_enter)+"|"+string(ord("A"))+"|"+string(ord("S"))+"|"+string(ord("D"))+"|"+string(ord("V"))+"|")
