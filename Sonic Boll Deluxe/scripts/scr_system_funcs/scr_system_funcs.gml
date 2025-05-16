@@ -16,6 +16,14 @@ function system_start(){
 	
 	window_set_size(400*global.s,224*global.s)
 	window_center();
+    
+    //FMOD
+    fmod_system_create();
+    fmod_system_init(1024,FMOD_INIT.NORMAL);
+    //mus_init();
+    
+    global.MUS_TITLE=fmod_system_create_sound(fmod_path_bundle("vanilla/media/title_screen.wav"),FMOD_MODE.LOOP_OFF);
+    fmod_system_play_sound(global.MUS_TITLE,false)
 	
 	//set up game directories and caches
 	global.workdir=working_directory+"\\"
@@ -227,6 +235,12 @@ function system_step() {
 	global.view_yview=camera_get_view_y(view_camera[0]);
 	global.view_wview=camera_get_view_width(view_camera[0]);
 	global.view_hview=camera_get_view_height(view_camera[0]);
+    
+    fmod_system_update();
 	
 	if (keyboard_check_pressed(vk_escape) && !instance_exists(console)) menu_cancel();
+}
+
+function mus_init() {
+    //global.MUS_TITLE=fmod_system_create_sound(fmod_path_bundle("vanilla/media/title_screen.wav"),FMOD_MODE.LOOP_OFF);
 }
