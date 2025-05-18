@@ -97,7 +97,8 @@ function import_sheets() {
 		var _name = global._playerChars[i];
 		global.animdat[i]=[];
 		var dir=$"{working_directory}\\_vanilla\\character\\{_name}"
-		var buffer = buffer_load($"{dir}\\config.ini");
+		if !file_exists($"{dir}\\player.txt") exit;
+		var buffer = buffer_load($"{dir}\\player.txt");
 		var _string = buffer_read(buffer,buffer_string);
 		buffer_delete(buffer);
 		var retrieved_dat=json_parse(_string)

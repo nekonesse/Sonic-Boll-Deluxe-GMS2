@@ -1,2 +1,2 @@
-fmod_sound_release(global.snd[$ "_intro"])
+fmod_sound_group_stop(global.musgroup)
 texturegroup_unload("title_screen_sprites")

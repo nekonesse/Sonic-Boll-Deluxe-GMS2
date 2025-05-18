@@ -1,5 +1,3 @@
-if (instance_exists(segafade)) if (segafade.object_index=segafade) exit
-
 //if (instance_exists(keyconfig)) {visible=0 exit}
 //else visible=1
 
@@ -11,6 +9,24 @@ if (special && canmouse) mousecursor(0)
 
 x=median(global.view_xview+8,x+(right-left)*2,global.view_xview+392)
 y=median(global.view_yview+8,y+(down-up)*2,global.view_yview+216)
+
+if (akey) {
+    //with (pf9) event_user(0)
+   /// with (pf10) event_user(0)
+    //with (pf12) event_user(0)
+    if (abut) image_index=1
+    image_index=min(2,image_index+0.2)
+} else if (bkey) {
+    //with (pf9) event_user(1)
+    //with (pf10) event_user(1)
+    //with (pf12) event_user(1)
+	if (bbut) {
+		image_index=3
+	}
+    image_index=min(4,image_index+0.2)
+} else image_index=0
+
+if (instance_exists(segafade)) if (segafade.object_index=segafade) exit
 
 if (instance_exists(statshow)) {
     if (abut || bbut || (cbut && !statshow.maxpage)) statshow.go=1
@@ -93,19 +109,3 @@ if (cbut) {
     //    sound("systemselect")
     //}
 }
-
-if (akey) {
-    //with (pf9) event_user(0)
-   /// with (pf10) event_user(0)
-    //with (pf12) event_user(0)
-    if (abut) image_index=1
-    image_index=min(2,image_index+0.2)
-} else if (bkey) {
-    //with (pf9) event_user(1)
-    //with (pf10) event_user(1)
-    //with (pf12) event_user(1)
-	if (bbut) {
-		image_index=3
-	}
-    image_index=min(4,image_index+0.2)
-} else image_index=0

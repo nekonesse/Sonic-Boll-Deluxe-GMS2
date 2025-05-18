@@ -132,7 +132,7 @@ function menu_cancel() {
 	if (instance_exists(blockmessage)) {blockmessage.off=1 exit}
 
 	if (room=mainmenu) segafadeto(titlescreen,"systemreturn")
-
+	
 	//if (room=speciale) with (moranboll) {
 	//    sound("systemreturn")
 	//    instance_destroy()
@@ -157,11 +157,13 @@ function menu_cancel() {
 	        else segafadeto(titlescreen)
 	    }
 	    */
-	    if (room=options /*&& !instance_exists(keyconfig)*/) {saveopt() segafadeto(mainmenu,"systemreturn")}
+	    if (room=options /*&& !instance_exists(keyconfig)*/) {saveopt() segafadeto(mainmenu,"systemreturn",true,true,true, false)}
 	    /*if (room=replays || room=modloader || room=trophies || room=ta_results) segafadeto(mainmenu,"systemreturn")
 	    if (room=roster) {if (rosterctrl.cog) {sound("systemreturn") rosterctrl.cog=0} else if (global.bundled) segafadeto(title,"systemreturn") else segafadeto(mainmenu,"systemreturn")}
 	    if (room=stagesel || room=ta_menu) segafadeto(roster,"systemreturn")
 	}*/
+	
+	if (room=game) segafadeto(titlescreen,"systemreturn")
 }
 
 function modulo(value, lower, upper) {

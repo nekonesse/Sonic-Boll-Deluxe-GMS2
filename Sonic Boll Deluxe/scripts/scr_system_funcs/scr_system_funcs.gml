@@ -285,7 +285,7 @@ function system_step() {
 	if (fadekill) {
 	    volkill=max(0,volkill*0.9)
 	    fmod_sound_group_set_volume(global.sndgroup, volkill)
-		 fmod_sound_group_set_volume(global.musgroup, volkill)
+		fmod_sound_group_set_volume(global.musgroup, volkill)
 	    if (volkill<=0.025) system_end()
     
 	    fadekillbob=!fadekillbob
@@ -302,8 +302,9 @@ function system_step() {
 }
 
 function mus_init() {
+	global.mushandle=-1;
 	global.sndgroup=fmod_system_create_sound_group("fmodsounds")
-	global.musgroup=fmod_system_create_sound_group("fmodsounds")
+	global.musgroup=fmod_system_create_sound_group("fmodsongs")
 	global.snd = {};
 	replacemusic("_intro", "vanilla\\media\\title_screen.wav")
 	replacemusic("_options", "vanilla\\media\\options.mod")

@@ -12,6 +12,9 @@ else if (global.lastroom!=roster && global.lastroom!=options && global.lastroom!
     else menumusic()
 }*/
 
+if !fmod_channel_control_is_playing(global.mushandle)
+global.mushandle=fmod_system_play_sound(global.snd[$ "_options"],false)
+
 global.quietyou=0
 global.bundled=0
 global.creditsroll=0

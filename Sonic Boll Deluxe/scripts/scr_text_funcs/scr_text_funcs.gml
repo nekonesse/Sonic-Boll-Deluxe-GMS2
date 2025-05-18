@@ -1,4 +1,4 @@
-function draw_systext(initx, inity, str, col, alpha, linespc){
+function draw_systext(initx, inity, str, col=$ffffff, alpha=1, linespc=8){
     var l,i,j,c,s;
     var line,lw,lh;
     var arr,tag,tagstr,cmd;

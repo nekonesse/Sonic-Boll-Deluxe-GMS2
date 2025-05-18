@@ -1,7 +1,7 @@
 if (image_index=0) segafadeto(game,"systemstart")
 if (image_index=1) menu_cancel()
 //if (image_index=2) menu_quickplay()
-if (image_index=3) segafadeto(options,"systemstart")
+if (image_index=3) segafadeto(options,"systemstart",true,true,true)
 if (image_index=4) url_open("https://pastebin.com/2PQ7LEpB") //Used to be replays button
 //if (image_index=5) {sound("systemreturn") menu_closebutton()}
 if (image_index=6) segafadeto(lemon,"systemstart")

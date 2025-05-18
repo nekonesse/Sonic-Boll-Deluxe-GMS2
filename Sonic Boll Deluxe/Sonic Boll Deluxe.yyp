@@ -183,6 +183,7 @@
     {"id":{"name":"statshow","path":"objects/statshow/statshow.yy",},},
     {"id":{"name":"toolbutton","path":"objects/toolbutton/toolbutton.yy",},},
     {"id":{"name":"boot","path":"rooms/boot/boot.yy",},},
+    {"id":{"name":"change","path":"rooms/change/change.yy",},},
     {"id":{"name":"game","path":"rooms/game/game.yy",},},
     {"id":{"name":"lemon","path":"rooms/lemon/lemon.yy",},},
     {"id":{"name":"mainmenu","path":"rooms/mainmenu/mainmenu.yy",},},
@@ -760,6 +761,7 @@
     {"roomId":{"name":"boot","path":"rooms/boot/boot.yy",},},
     {"roomId":{"name":"roster","path":"rooms/roster/roster.yy",},},
     {"roomId":{"name":"options","path":"rooms/options/options.yy",},},
+    {"roomId":{"name":"change","path":"rooms/change/change.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
