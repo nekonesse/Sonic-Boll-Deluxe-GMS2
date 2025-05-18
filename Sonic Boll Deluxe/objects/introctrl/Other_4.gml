@@ -1,1 +1,1 @@
-fmod_system_play_sound(global.MUS_TITLE,false)
+fmod_system_play_sound(global.snd[$ "_intro"],false)

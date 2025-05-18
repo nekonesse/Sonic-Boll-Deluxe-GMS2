@@ -13,6 +13,9 @@ function room_goto_safe(_room){
 function segafadeto(_room,_sound=-1,_keepborder=0,_keepmusic=0,_keeprunes=0,_fade_in=1) {
 	instance_destroy(segafadein)
 	
+	if _sound!=-1 && struct_exists(global.snd, _sound)
+	fmod_system_play_sound(global.snd[$ _sound], false)
+	
 	/*if (room=game && skindat("nofade")) {
 	    room_goto_safe(argument[0])
 	    return 1

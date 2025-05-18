@@ -284,7 +284,8 @@ function system_step() {
 	//closing animation
 	if (fadekill) {
 	    volkill=max(0,volkill*0.9)
-	    fmod_sound_group_set_volume(fmod_system_get_master_sound_group(), volkill)
+	    fmod_sound_group_set_volume(global.sndgroup, volkill)
+		 fmod_sound_group_set_volume(global.musgroup, volkill)
 	    if (volkill<=0.025) system_end()
     
 	    fadekillbob=!fadekillbob
@@ -301,8 +302,26 @@ function system_step() {
 }
 
 function mus_init() {
-    global.MUS_TITLE=fmod_system_create_sound(fmod_path_bundle("vanilla\\media\\title_screen.wav"),FMOD_MODE.LOOP_OFF);
-	 global.MUS_TITLE=fmod_system_create_sound(fmod_path_bundle("vanilla\\media\\title_screen.wav"),FMOD_MODE.LOOP_OFF);
+	global.sndgroup=fmod_system_create_sound_group("fmodsounds")
+	global.musgroup=fmod_system_create_sound_group("fmodsounds")
+	global.snd = {};
+	replacemusic("_intro", "vanilla\\media\\title_screen.wav")
+	replacemusic("_options", "vanilla\\media\\options.mod")
+	replacemusic("_editor", "vanilla\\media\\editor.ogg")
+	replacesound("systemreturn","vanilla\\media\\return.wav")
+	replacesound("systemselect","vanilla\\media\\select.wav")
+	replacesound("systemstart","vanilla\\media\\start.wav")
+	replacesound("systemgo","vanilla\\media\\go.wav")
+}
+
+function replacesound(identifier, filename) {
+	global.snd[$ identifier]=fmod_system_create_sound(fmod_path_bundle(filename),FMOD_MODE.LOOP_OFF);
+	fmod_sound_set_sound_group(global.snd[$ identifier], global.sndgroup);
+}
+
+function replacemusic(identifier, filename) {
+	global.snd[$ identifier]=fmod_system_create_sound(fmod_path_bundle(filename),FMOD_MODE.LOOP_OFF);
+	fmod_sound_set_sound_group(global.snd[$ identifier], global.musgroup);
 }
 
 function system_end() {
@@ -315,4 +334,6 @@ function system_end() {
 
 	file_delete(global.tasfile)
 	file_delete(global.tmpfile)
+	
+	game_end();
 }
