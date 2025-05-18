@@ -1,0 +1,1 @@
+fmod_system_play_sound(global.MUS_TITLE,false)

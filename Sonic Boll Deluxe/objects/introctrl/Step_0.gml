@@ -22,7 +22,6 @@ if (!lok) {
             if (cango) {
                 lok=1
                 alarm[0]=-1
-				//room_goto(mainmenu)
                 segafadeto(mainmenu,"systemgo",false,false,false,true)
             }         
             if (!cango) {
@@ -30,7 +29,7 @@ if (!lok) {
                 ye=1
                 x=xstart y=ystart
                 vspeed=0
-                bt=2 bs=1 vs=1                       
+                bt=2 bs=1 vs=1
                 with (introfade) alarm[0]=1
                 with (introslide1) alarm[0]=1*!!alarm[0]
                 with (introslide2) alarm[0]=1*!!alarm[0]

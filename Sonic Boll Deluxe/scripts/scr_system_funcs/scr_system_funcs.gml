@@ -16,14 +16,13 @@ function system_start(){
 	
 	window_set_size(400*global.s,224*global.s)
 	window_center();
+	
+	HUDColl=new Collage("HUD", 4096, 4096, false, 1, true)
     
     //FMOD
     fmod_system_create();
     fmod_system_init(1024,FMOD_INIT.NORMAL);
     //mus_init();
-    
-    global.MUS_TITLE=fmod_system_create_sound(fmod_path_bundle("vanilla/media/title_screen.wav"),FMOD_MODE.LOOP_OFF);
-    fmod_system_play_sound(global.MUS_TITLE,false)
 	
 	//set up game directories and caches
 	global.workdir=working_directory+"\\"
@@ -31,7 +30,7 @@ function system_start(){
 
 	global.savedir=global.workdir+"save\\"
 	directory_create(global.savedir)
-	
+		
 	var savestring = global.savedir+gametitle
 	if debug_mode savestring+="_DEBUG"
 	global.savefile=savestring+".cfg"
@@ -40,6 +39,8 @@ function system_start(){
 
 	global.tmpfile=global.tempdir+"res.gms"
 	global.tasfile=global.tempdir+"tas.gms"
+	
+	mus_init();
 	
 	vertex_format_begin();
 	vertex_format_add_position_3d();
@@ -108,6 +109,41 @@ function system_start(){
 	}
 
 	global.scripts = compile_code()
+	
+	//// Charm Loading ////
+	#region Charm Loading
+		global._playerChars = []; //Names of all charms
+		var _chCharm = file_find_first($"{working_directory}\\vanilla\\character\\*", fa_directory);
+		var _chIndex = 0;
+
+		// Find/load all the charms
+		if (_chCharm != "" && _chCharm != "<null>")
+		{
+			while(_chCharm != "" && _chCharm != "<null>")
+			{
+				array_push(global._playerChars, _chCharm);
+				_chCharm  = file_find_next();
+				_chIndex++;
+			}
+		}
+		
+		//Find/load all the modded charms
+		var _chCharm = file_find_first($"{working_directory}\\mods\\character\\*", fa_directory);
+		var _chIndex = 0;
+
+		// Find/load all the charms
+		if (_chCharm != "" && _chCharm != "<null>")
+		{
+			while(_chCharm != "" && _chCharm != "<null>")
+			{
+				array_push(global._playerChars, _chCharm);
+				_chCharm  = file_find_next();
+				_chIndex++;
+			}
+		}
+	#endregion
+	
+	compile_hud_sprites()
 	
 	//globals
 	global.sysfont=spr_sysfont
@@ -239,8 +275,44 @@ function system_step() {
     fmod_system_update();
 	
 	if (keyboard_check_pressed(vk_escape) && !instance_exists(console)) menu_cancel();
+	
+	if (window_command_check($F060)) {
+	    fadekill = true
+		window_command_set_active($F060, false);
+	}
+	
+	//closing animation
+	if (fadekill) {
+	    volkill=max(0,volkill*0.9)
+	    fmod_sound_group_set_volume(fmod_system_get_master_sound_group(), volkill)
+	    if (volkill<=0.025) system_end()
+    
+	    fadekillbob=!fadekillbob
+	    if (fadekillbob) {
+	        window_set_size(400*global.s,ceil(244*global.s*sqr(volkill)))
+	        window_center()        
+	    } else {
+	        draw_clear(merge_color(0,$ffffff,1-volkill))
+	        window_set_color(merge_color(0,$ffffff,1-volkill))
+	    }
+	    exit
+	}  
+
 }
 
 function mus_init() {
-    //global.MUS_TITLE=fmod_system_create_sound(fmod_path_bundle("vanilla/media/title_screen.wav"),FMOD_MODE.LOOP_OFF);
+    global.MUS_TITLE=fmod_system_create_sound(fmod_path_bundle("vanilla\\media\\title_screen.wav"),FMOD_MODE.LOOP_OFF);
+	 global.MUS_TITLE=fmod_system_create_sound(fmod_path_bundle("vanilla\\media\\title_screen.wav"),FMOD_MODE.LOOP_OFF);
+}
+
+function system_end() {
+	window_set_fullscreen(0);
+	window_set_visible_w(false);
+	//discord_free_app()
+	//discord_free_dll()
+	global.kill=1
+	saveopt()
+
+	file_delete(global.tasfile)
+	file_delete(global.tmpfile)
 }

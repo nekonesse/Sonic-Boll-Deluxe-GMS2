@@ -1,1 +1,2 @@
+fmod_sound_release(global.MUS_TITLE)
 texturegroup_unload("title_screen_sprites")

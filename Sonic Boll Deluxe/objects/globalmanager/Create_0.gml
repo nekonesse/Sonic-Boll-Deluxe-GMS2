@@ -3,3 +3,7 @@ global.restarting=false;
 global.kill=false;
 global.lemontest=false;
 fadekill=false;
+fadekillbob=false;
+volkill=1;
+window_command_hook_init()
+window_command_hook($F060);
